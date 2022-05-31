@@ -7,3 +7,4 @@ services:
       - .:/var/www/html/
     ports:
       - 10000:80
+    restart: unless-stopped
