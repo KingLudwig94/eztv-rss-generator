@@ -1,10 +1,10 @@
-version: '2.4'
+version: '3.8'
 services:
   php-apache-environment:
     container_name: eztv_rss
     image: php:8.0-apache
     volumes:
-      - ./src:/var/www/html/
+      - src:/var/www/html/
     ports:
       - 10000:80
     restart: unless-stopped
