@@ -4,6 +4,6 @@ services:
     container_name: eztv_rss
     image: php:8.0-apache
     volumes:
-      - ./:/var/www/html/
+      - ./src:/var/www/html/
     ports:
       - 10000:80
