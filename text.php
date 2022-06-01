@@ -2,14 +2,14 @@
 
 include("simple_html_dom.php");
 
-//$html = file_get_html('https://eztv.re/shows/438104/obi-wan-kenobi&quality=1080');
-$html = file_get_html('https://eztv.re/shows/'.$_REQUEST['show']);
-//$show ="obi-wan-kenobi";
-$show = $_REQUEST['show'];
-$q = $_REQUEST['quality'];
-//$q = 1080;
+$html = file_get_html('https://eztv.re/shows/438104/obi-wan-kenobi&quality=1080');
+// $html = file_get_html('https://eztv.re/shows/'.$_REQUEST['show']);
+$show ="obi-wan-kenobi";
+// $show = $_REQUEST['show'];
+// $q = $_REQUEST['quality'];
+$q = 1080;
 
-header("content-type:text/xml");
+header("content-type:text/text");
 
 echo '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE torrent PUBLIC "-//bitTorrent//DTD torrent 0.1//EN" "http://xmlns.ezrss.io/0.1/dtd/">
@@ -23,10 +23,9 @@ $found = array();
 foreach($html->find('a') as $element) {
 	if($element->class == 'magnet'){//download_1
 		$title = $element->parent()->prev_sibling()->first_child()->title;
-		if(str_contains($title, $q.'p')){
+		if(str_contains($title, $q.'p') || str_contains($title, $q.'P')){
 			preg_match('/S\d{2}E\d{2}/',$title, $matches);
 			$ep = $matches[0];
-			
 			$seedText = $element->parent()->next_sibling()->next_sibling()->next_sibling()->first_child();
 			if(!is_null($seedText)){
 				$seeds = substr($seedText->__toString(),20);
