@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  eztv_rss:
+    container_name: eztv_rss
+    build: .
+    restart: unless-stopped
+    ports:
+      - 80:80
