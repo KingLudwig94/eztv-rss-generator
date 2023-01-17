@@ -2,8 +2,8 @@ version: '3.8'
 services:
   eztv_rss:
     container_name: eztv_rss
-    #build: .
-    image: kingludwig94/eztvrssgenerator:latest 
+    build: .
+    #image: kingludwig94/eztvrssgenerator:latest 
     restart: unless-stopped
     ports:
       - 10000:80
