@@ -28,6 +28,9 @@ Drop the files on a folder of your web server root. That's all!
 
 IMPORTANT: always copy the last 2 parts (the number and the name of the show)
 
+5. If you have a preferred quality, add a second parameter in the url with this format:
+	?quality=1080
+	
 Enjoy!!
 
 
