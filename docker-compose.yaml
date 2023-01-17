@@ -4,6 +4,6 @@ services:
     container_name: eztv_rss
     #build: .
     image: kingludwig94/eztvrssgenerator:latest 
-    restart: unless-stopped
+    #restart: unless-stopped
     ports:
       - 10000:80
