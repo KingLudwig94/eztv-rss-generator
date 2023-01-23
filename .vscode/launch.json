@@ -22,7 +22,7 @@
                 "-dxdebug.mode=debug",
                 "-dxdebug.start_with_request=yes",
                 "-S",
-                "localhost:0"
+                "localhost:8000"
             ],
             "env": {
                 "XDEBUG_MODE": "debug,develop",
@@ -42,7 +42,7 @@
                 "-dxdebug.mode=debug",
                 "-dxdebug.start_with_request=yes",
                 "-S",
-                "localhost:0"
+                "localhost:8000"
             ],
             "program": "",
             "cwd": "${workspaceRoot}",

@@ -15,7 +15,7 @@ foreach( $status->find('a') as $domain){
 	}
 }
 
-//$html = file_get_html( $dom . '/shows/438104/obi-wan-kenobi&quality=1080');
+//$html = file_get_html( $dom . '/shows/?show=438104/obi-wan-kenobi&quality=1080');
 $html = file_get_html($dom . '/shows/'.$_REQUEST['show']);
 $show = $_REQUEST['show'];
 $q = $_REQUEST['quality'];

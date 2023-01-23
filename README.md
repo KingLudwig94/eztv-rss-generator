@@ -24,7 +24,7 @@ Drop the files on a folder of your web server root. That's all!
 3. Copy the last 2 parts of the URL: 481/game-of-thrones/
 4. The URL that you have to setup on the RSS feed on uTorrent should be:
 
-	http://your_host/the_path_to_the_script/index.php?show=481/game-of-thrones/
+	http://your_host/the_path_to_the_script/index.php/shows/?show=481/game-of-thrones/
 
 IMPORTANT: always copy the last 2 parts (the number and the name of the show)
 
