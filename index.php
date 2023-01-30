@@ -29,14 +29,14 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 	<channel>
 		<title>ezRSS - ' . $show . ' ' .  $q . 'p</title>
-	<description>Custom RSS feed based off search filters.</description>';
+	<description>Custom RSS feed based off search filters.</description>', PHP_EOL;
 
 $found = array();
 
 foreach ($html->find('a') as $element) {
 	if ($element->class == 'magnet') { //download_1
 		$title = $element->parent()->prev_sibling()->first_child()->title;
-		if (str_contains($title, $q . 'p')) {
+		if (str_contains($title, $q . 'p') || str_contains($title, $q . 'P')) {
 			preg_match('/S\d{2}E\d{2}/', $title, $matches);
 			$ep = $matches[0];
 
@@ -69,12 +69,13 @@ foreach ($found as $key => $value) {
 
 	$maxs = array_keys(array_map("findseed", $value), max(array_map("findseed", $value)))[0];
 	$element = $value[$maxs];
-	echo "<item>";
-	echo '<title>'.$element["title"].'</title>
-			<link>'.$element["magnet"].'</link>
-			<description>Seeds: '. $element['seeds'] . '</description>';
+	echo "<item>", PHP_EOL;
+	echo '<title>'.$element["title"].'</title>', PHP_EOL,
+			'<description>Seeds: '. $element['seeds'] . '</description>', PHP_EOL,
+			'<link><![CDATA['.$element['magnet'].']]></link>', PHP_EOL;
 	echo "</item>";
 }
+
 function findseed($v)
 {
 	return $v['seeds'];
