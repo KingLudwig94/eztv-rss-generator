@@ -5,11 +5,12 @@ include("simple_html_dom.php");
 $ctx = stream_context_create(array(
 	'http' =>
 	array(
-		'timeout' => 120,  //1200 Seconds is 20 Minutes
+		'timeout' => 30,  //1200 Seconds is 20 Minutes
 	)
 ));
 
 try {
+	
 	$status = file_get_html('https://eztvstatus.com', context: $ctx);
 
 	foreach ($status->find('a') as $domain) {
@@ -22,7 +23,7 @@ try {
 		}
 	}
 } catch (Throwable $err) {
-	$dom = 'https://eztv.re/';
+	$dom = 'https://eztv.re';
 } finally {
 
 	$show = $_REQUEST['show'];

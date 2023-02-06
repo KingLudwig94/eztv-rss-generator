@@ -6,7 +6,7 @@ include("simple_html_dom.php");
 $ctx = stream_context_create(array(
 	'http' =>
 	array(
-		'timeout' => 120,  //1200 Seconds is 20 Minutes
+		'timeout' => 30,  //1200 Seconds is 20 Minutes
 	)
 ));
 
@@ -23,14 +23,17 @@ try {
 		}
 	}
 } catch (Throwable $err) {
-	$dom = 'https://eztv.re/';
-
-	// $html = file_get_html( $dom . '/shows/?show=438104/obi-wan-kenobi&quality=1080');
-	$html = file_get_html($dom . '/shows/' . $_REQUEST['show']);
+	$dom = 'https://eztv.re';
+}finally{
+	
 	$show = $_REQUEST['show'];
 	$q = $_REQUEST['quality'];
-	// $show ="obi-wan-kenobi";
-	// $q = 1080;
+
+	//TEST
+	// $show = "488560/the-last-of-us";
+	// $q = 2160;
+
+	$html = file_get_html($dom . '/shows/' . $show, context: $ctx);
 
 	header("content-type:text/xml");
 
@@ -87,8 +90,7 @@ try {
 	}
 
 
-	echo '</channel>
-</rss>';
+	echo '</channel></rss>';
 }
 
 function findseed($v)
