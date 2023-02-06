@@ -5,4 +5,4 @@ COPY ./ /var/www/html/
 #EXPOSE 80
 
 
-# To build: docker buildx build --push --platform linux/amd64,linux/arm64 --tag jingludwig94/eztvrssgenerator:latest .
+# To build: docker buildx build --push --platform linux/amd64,linux/arm64 --tag kingludwig94/eztvrssgenerator:latest .
