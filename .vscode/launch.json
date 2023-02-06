@@ -62,7 +62,7 @@
                 "-dxdebug.start_with_request=yes",
                 "-f text.php",
                 "-S",
-                "localhost:8000"
+                "localhost:8100"
             ],
             "program": "",
             "cwd": "${workspaceRoot}",
